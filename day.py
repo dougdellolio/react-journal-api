@@ -12,6 +12,3 @@ class Day(db.Model):
     dinner = db.Column(db.String(120), unique=False, nullable=False)
     rating = db.Column(db.Integer, unique=False, nullable=False)
     notes = db.Column(db.String(max), unique=False, nullable=True)
-
-    # def __repr__(self):
-    #     return '<User %r>' % self.username

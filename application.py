@@ -15,6 +15,3 @@ def get_day():
 def get_health():
 
     return jsonify(message="ok")
-
-if __name__ == '__main__':
-    application.run()

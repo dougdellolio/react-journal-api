@@ -44,7 +44,7 @@ def get_health():
 @application.route("/day/<date>", methods=['GET'])
 def get_day(date):
     try:
-        day = Day.query.filter_by(date=date)
+        day = Day.query.filter_by(date=date).first()
 
         return  jsonify(day.serialize())
     except Exception as e:

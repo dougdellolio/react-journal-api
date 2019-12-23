@@ -32,3 +32,12 @@ def get_day():
 def get_health():
 
     return jsonify(message="ok")
+
+@application.route("/getall")
+def get_all():
+    try:
+        days=Day.query.all()
+
+        return  jsonify([e.serialize() for e in days])
+    except Exception as e:
+	    return(str(e))

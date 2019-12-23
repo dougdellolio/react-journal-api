@@ -10,14 +10,16 @@ class Day(db.Model):
     dinner = db.Column(db.String(120), unique=False, nullable=False)
     rating = db.Column(db.Integer, unique=False, nullable=False)
     notes = db.Column(db.String(max), unique=False, nullable=True)
+    gym = db.Column(db.Boolean, unique=False, nullable=True)
 
-    def __init__(self, date, breakfast, lunch, dinner, rating, notes):
+    def __init__(self, date, breakfast, lunch, dinner, rating, notes, gym):
         self.date = date
         self.breakfast = breakfast
         self.lunch = lunch
         self.dinner = dinner
         self.rating = rating
         self.notes = notes
+        self.gym = gym
 
     def __repr__(self):
         return '<Date {}>'.format(self.Date)
@@ -29,5 +31,6 @@ class Day(db.Model):
             'lunch': self.lunch,
             'dinner': self.dinner,
             'rating': self.rating,
+            'gym': self.gym,
             'notes': self.notes
         }

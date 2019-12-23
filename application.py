@@ -3,12 +3,15 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 
-from day import Day
 
 application = Flask(__name__)
+db = SQLAlchemy(application)
+
+from models import Day
+
+
 application.config.from_object(os.environ['APP_SETTINGS'])
 application.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(application)
 CORS(application)
 
 @application.route('/')

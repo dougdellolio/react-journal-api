@@ -14,13 +14,14 @@ CORS(application)
 
 @application.route('/add', methods=['POST'])
 def add_day():
-    date = request.args.get('date')
-    breakfast = request.args.get('breakfast')
-    lunch = request.args.get('lunch')
-    dinner = request.args.get('dinner')
-    rating = request.args.get('rating')
-    gym = request.args.get('gym')
-    notes = request.args.get('notes')
+
+    date = request.json['date']
+    breakfast = request.json['breakfast']
+    lunch = request.json['lunch']
+    dinner = request.json['dinner']
+    rating = request.json['rating']
+    gym = request.json['gym']
+    notes = request.json['notes']
 
     day = Day(
         date = date,

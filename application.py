@@ -35,7 +35,7 @@ def add_day():
     db.session.add(day)
     db.session.commit()
 
-    return "Added details for date={}".format(day.Date)
+    return jsonify(success=True)
 
 @application.route('/health')
 def get_health():

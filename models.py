@@ -22,7 +22,7 @@ class Day(db.Model):
         self.gym = gym
 
     def __repr__(self):
-        return '<Date {}>'.format(self.Date)
+        return '<Date {}>'.format(self.date)
 
     def serialize(self):
         return {

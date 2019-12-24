@@ -37,6 +37,23 @@ def add_day():
 
     return jsonify(success=True)
 
+@application.route('/day', methods=['PUT'])
+def update_day():
+
+    date = request.json['date']
+
+    day = Day.query.filter_by(date=date).first()
+    day.breakfast = request.json['breakfast']
+    day.lunch = request.json['lunch']
+    day.dinner = request.json['dinner']
+    day.rating = request.json['rating']
+    day.gym = request.json['gym']
+    day.notes = request.json['notes']
+
+    db.session.commit()
+
+    return jsonify(success=True)
+
 @application.route('/health')
 def get_health():
 

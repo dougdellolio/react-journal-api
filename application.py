@@ -46,6 +46,9 @@ def get_day(date):
     try:
         day = Day.query.filter_by(date=date).first()
 
+        if day == None:
+            return jsonify([])
+
         return  jsonify(day.serialize())
     except Exception as e:
 	    return(str(e))

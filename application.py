@@ -70,3 +70,12 @@ def get_day(date):
         return  jsonify(day.serialize())
     except Exception as e:
 	    return(str(e))
+
+@application.route("/days", methods=['GET'])
+def get_all_days():
+    try:
+        all_days = Day.query.all()
+
+        return jsonify([day.serialize() for day in all_days])
+    except Exception as e:
+        return (str(e))

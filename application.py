@@ -71,7 +71,6 @@ def get_day(date):
     except Exception as e:
 	    return(str(e))
 
-
 @application.route("/days", methods=['GET'])
 def get_all_days():
     try:

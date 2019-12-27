@@ -62,6 +62,11 @@ def get_health():
 @application.route("/day/<date>", methods=['GET'])
 def get_day(date):
     try:
+        if date is None:
+            all_days = Day.query.all()
+
+            return jsonify([e.serialize() for e in all_days])
+
         day = Day.query.filter_by(date=date).first()
 
         if day == None:
@@ -70,3 +75,13 @@ def get_day(date):
         return  jsonify(day.serialize())
     except Exception as e:
 	    return(str(e))
+
+
+@application.route("/days", methods=['GET'])
+def get_all_days():
+    try:
+        all_days = Day.query.all()
+
+        return jsonify([day.serialize() for day in all_days])
+    except Exception as e:
+        return (str(e))
